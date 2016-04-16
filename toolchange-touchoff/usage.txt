@@ -1,0 +1,17 @@
+PURPOSE / USAGE:
+- Using a CNC knee mill that has a manual quick-change pneumatic tool-holder. 
+- Running LinuxCNC with toolchange enabled.
+- Not enough toolholders for all tools used / don't have a way to (or will to!) setup all offsets before running
+- What works best is to have the mill return to a specific XY point after a toolchange, move down to Z0, and then pause while operator manually brings the knee up to touchoff
+- Operator than releases the pause and script continues
+- Therefore, have CamBam produce custom gcode with the toolchange, and prompt the user to input the X and Y coordinates of a 'toolchange-touchoff' point, which is then incorporated into every toolchange in the GCODE file.
+
+PROCESS FOR CUSTOM TOOLCHANGE TOUCHOFF
+- INCLUDED (edit as necessary): Edit the post-processor to include a custom toolchange that included a controlled move to "TOUCHOFF-POINT" and then Z0
+- ***YOU MUST DO THIS*** --> Place the script (cambam-regex.py) in "bin" (I am in Linux ... not sure off the top of my head where you'd need to place it in Windows)
+- INCLUDED: Call "cambam-regex.py" in the post-build processor command in the post-processor in CamBam
+- INCLUDED (edit as necessary): Include the necessary arguments:
+    1) the string being searched for ("TOUCHOFF-POINT")
+    2) the filename to be edited ("{$outfile}" ... this MUST be wrapped in quotes, because spaces in the filename will malform the command!)
+    3) OPTIONAL: text to append to the filename (e.g. 'production' ... so myfile.nc becomes myfile-production.ngc ... and the script CAN handle filenames with multiple periods)
+- INCLUDED: When gcode is generated, the script will popup an input box requesting the text to replace with ... input the XY location (e.g. "X-0.5 Y0" ... no quotes!) and press ENTER.

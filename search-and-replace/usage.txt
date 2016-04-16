@@ -1,0 +1,13 @@
+==USAGE==
+- Call in command line (or place in executable folder ... BIN in Linux, ??? in Windows / Apple)
+- Pass 2 or 3 arguments:
+  * 2 arguments: cambam-regex.py [text-string-to-search-for] [complete-path-to-file-to-search]
+  * 3 arguments: cambam-regex.py [text-string-to-search-for] [complete-path-to-file-to-search] [suffix-to-add-to-original-file-name]
+- Script will generate a popup asking user to input the **REPLACEMENT** string, and then press ENTER/RETURN
+
+NOTES:
+- Make sure to place quotes around any text string that has spaces in it! (Otherwise, the script will interpret it as multiple arguments and malfunction)
+- Adding a suffix as an argument will preserve the original file and create a new, edited one. 
+  **Not passing a suffix will OVERWRITE THE ORIGINAL FILE!**
+- Code is completely commented for ease of understanding and modification
+- If there are too many or insufficient arguments passed, or no string is given by the user, the script will popup a box with proper command line syntax for the script, and then exit. **It must be manually rerun.**

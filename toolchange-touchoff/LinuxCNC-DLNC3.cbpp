@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PostProcessor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="0.9.8.0">
+  <PostFile>{$comment} Made using CamBam - http://www.cambam.co.uk {$endcomment}
+{$header}
+{$mops}
+{$footer}
+</PostFile>
+  <Header>{$comment} {$cbfile.name} {$date} {$endcomment}
+{$tooltable}
+{$cbfile.header}
+{$units} {$distancemode} {$arccentermode} {$velocitymode} {$cuttercomp(off)}
+{$toolchange(first)}
+{$clearance}</Header>
+  <Footer>{$clearance}
+{$spindle(off)}
+{$endrewind}
+{$cbfile.footer}
+</Footer>
+  <ToolChange>{$comment} -- begin toolchange -- {$endcomment}
+{$clearance}
+M5
+{$comment} T{$tool.index} : {$tool.diameter} {$endcomment}
+T{$tool.index} M6
+G0 TOUCHOFF-POINT
+{$clearance}
+{$spindlecw} {$s}
+G1 F{$mop.plungefeedrate} Z0
+{$stop}
+M8
+{$comment} -- end toolchange -- {$endcomment}</ToolChange>
+  <MOP>{$comment} {$mop.name} {$endcomment}
+{$toolchange}
+{$velocitymode} {$workplane}
+{$mop.header}
+{$spindle} {$s}
+{$blocks}
+{$mop.footer}
+</MOP>
+  <Drill>{$g81} {$_x} {$_y} {$_z} {$r} {$_f}</Drill>
+  <DrillDwell>{$g82} {$_x} {$_y} {$_z} {$p} {$r} {$_f}</DrillDwell>
+  <DrillPeck>{$g83} {$_x} {$_y} {$_z} {$q} {$r} {$_f}</DrillPeck>
+  <NumberFormat>0.0####</NumberFormat>
+  <MinimumArcLength>0.0001</MinimumArcLength>
+  <ArcCenterIncremental>G91.1</ArcCenterIncremental>
+  <ArcCenterAbsolute>G90.1</ArcCenterAbsolute>
+  <LatheToolRadiusOffset>false</LatheToolRadiusOffset>
+  <PostBuildCommand>"C:\ProgramData\CamBam plus 0.9.8\scripts\cambam-regex-win.bat"</PostBuildCommand>
+  <PostBuildCommandArgs>TOUCHOFF-POINT "{$outfile}" production</PostBuildCommandArgs>
+</PostProcessor>

@@ -7,12 +7,21 @@ PURPOSE / USAGE:
 - Therefore, have CamBam produce custom gcode with the toolchange, and prompt the user to input the X and Y coordinates of a 'toolchange-touchoff' point, which is then incorporated into every toolchange in the GCODE file.
 
 "INSTALLING"
-A) In Windows
+A) In Linux
+ 1. Go to "Raw" in Github --> save as
+ 2. Save to your CamBam post folder
+ 3. Open CamBam (or Tools --> Reload Post Processors)
+ 4. Make sure Python is installed
+ 5. Make sure the "cambam-regex-win.py" is installed (see it's usage instructions)
+ 6. Export g-code!
+ 
+B) In Windows
  1. Go to "Raw" in Github --> save as
  2. Save to "C:/Program Data/CamBam ... /post/WhatYouWantThisProcessorToBeCalled"
  3. Open CamBam (or Tools --> Reload Post Processors)
- 4. Make sure the "cambam-regex.py" is installed (see it's usage instructions)
- 5. Export g-code!
+ 4. Make sure Python is installed
+ 5. Make sure the "cambam-regex.py" and "cambam-regex-win.bat" is installed (see it's usage instructions)
+ 6. Export g-code!
 
 PROCESS FOR CUSTOM TOOLCHANGE TOUCHOFF
 - INCLUDED (edit as necessary): Edit the post-processor to include a custom toolchange that included a controlled move to "TOUCHOFF-POINT" and then Z0

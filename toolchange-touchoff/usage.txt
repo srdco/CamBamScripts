@@ -12,7 +12,7 @@ A) In Linux
  2. Save to your CamBam post folder
  3. Open CamBam (or Tools --> Reload Post Processors)
  4. Make sure Python is installed
- 5. Make sure the "cambam-regex-win.py" is installed (see it's usage instructions)
+ 5. Make sure the "cambam-regex.py" is installed (see it's usage instructions)
  6. Export g-code!
  
 B) In Windows
@@ -20,7 +20,7 @@ B) In Windows
  2. Save to "C:/Program Data/CamBam ... /post/WhatYouWantThisProcessorToBeCalled"
  3. Open CamBam (or Tools --> Reload Post Processors)
  4. Make sure Python is installed
- 5. Make sure the "cambam-regex.py" and "cambam-regex-win.bat" is installed (see it's usage instructions)
+ 5. Make sure the "cambam-regex-win.py" and "cambam-regex-win.bat" is installed (see it's usage instructions)
  6. Export g-code!
 
 PROCESS FOR CUSTOM TOOLCHANGE TOUCHOFF

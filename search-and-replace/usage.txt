@@ -1,9 +1,17 @@
 ==USAGE==
+Linux:
+- only need cambam-regex.py (not any files with "-win" suffix)
 - Call in command line (or place in executable folder ... BIN in Linux, ??? in Windows / Apple)
 - Pass 2 or 3 arguments:
   * 2 arguments: cambam-regex.py [text-string-to-search-for] [complete-path-to-file-to-search]
   * 3 arguments: cambam-regex.py [text-string-to-search-for] [complete-path-to-file-to-search] [suffix-to-add-to-original-file-name]
 - Script will generate a popup asking user to input the **REPLACEMENT** string, and then press ENTER/RETURN
+
+Windows 7 (probably other versions too):
+- need: a) cambam-regex-win.bat and b) cambam-regex-win.py (do not use the "cambam-regex.py" file)
+- place both files in 'scripts' folder (ProgramData/CamBam .../scripts)
+- Make sure the CamBam PP calls the bat file and passes the arguments to the python file (like in the example PP in the "postprocessor-toolchange-touchoff" folder in this GitHub account)
+- Use like in Linux instructions above
 
 NOTES:
 - Make sure to place quotes around any text string that has spaces in it! (Otherwise, the script will interpret it as multiple arguments and malfunction)
